@@ -97,7 +97,7 @@ class MainViewController: UIViewController {
                 var userDetails = try await fetchUserDetails()
                 
                 try await withThrowingTaskGroup(of: (Int, UIImage).self ){ group in
-                    for (index, user) in userDetails.enumerated(){
+                    for (index, _) in userDetails.enumerated(){
                         group.addTask{
                             let image = try await self.fetchUserImage()
                             return (index, image)
@@ -142,5 +142,8 @@ extension MainViewController: UITableViewDataSource{
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let tappedUser = users[indexPath.row]
+        let vc = UserDetailViewController(user: tappedUser)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

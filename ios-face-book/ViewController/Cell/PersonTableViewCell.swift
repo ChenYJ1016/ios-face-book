@@ -95,6 +95,7 @@ class PersonTableViewCell: UITableViewCell {
             labelsStackView.centerYAnchor.constraint(equalTo: personImageView.centerYAnchor),
             labelsStackView.leadingAnchor.constraint(equalTo: personImageView.trailingAnchor, constant: 12),
             labelsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+
         ])
     }
 }

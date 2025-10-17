@@ -15,10 +15,13 @@ struct User: Decodable, Identifiable {
     let firstName: String
     let lastName: String
     let email: String
+    let age: Int
+    let phone: String
+    let birthDate: String
     
     var profileImage: UIImage?
 
     enum CodingKeys: String, CodingKey {
-        case id, firstName, lastName, email
+        case id, firstName, lastName, email, age, phone, birthDate
     }
 }
